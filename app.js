@@ -3,7 +3,7 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-
+const dotenv = require('dotenv').config();
 const moongose = require('mongoose');
 
 const app = express();
@@ -42,7 +42,7 @@ app.use((err, req, res, next) => {
   res.render('error');
 });
 
-const mongoDB = 'mongodb://mongo:27017/usersdb';
+const mongoDB = process.env.MONGO_DOCKER_URL;
 
 moongose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 

@@ -1,0 +1,6 @@
+MONGO_INITDB_ROOT_USERNAME= admin_user
+MONGO_INITDB_ROOT_PASSWORD= admin_user
+MONGO_INITDB_DATABASE= application_database
+MONGO_USER=application_user
+MONGO_PASSWORD=application_pass
+MONGO_DOCKER_URL='mongodb://application_user:application_pass@mongo:27017/application_database'
