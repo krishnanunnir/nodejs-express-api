@@ -1,4 +1,3 @@
-const express = require('express');
 const crypto = require('crypto');
 const Cache = require('../models/cache');
 
@@ -14,16 +13,19 @@ exports.getCacheValueByKey = (req, res) => {
 
   const query = { key: req.body.key };
 
-  // We use crypto module to generate random strings
-  const newRecord = new Cache({
-    key: req.body.key,
-    value: crypto.randomBytes(20).toString('hex'),
-  });
   // finds if exists, otherwise it creates the document
-  Cache.findOneAndUpdate(query, newRecord, { upsert: true }, (err, data) => {
-    if (err) return res.send(500, { error: err });
-    return res.status(200).send(data);
-  });
+  Cache.findOneAndUpdate(
+    query,
+    {
+      key: req.body.key,
+      value: crypto.randomBytes(20).toString('hex'), // generates random 20 character string
+    },
+    { upsert: true },
+    (err, data) => {
+      if (err) return res.send(500, { error: err });
+      return res.status(200).send(data);
+    },
+  );
 };
 
 exports.getAllCacheValues = (req, res) => {
