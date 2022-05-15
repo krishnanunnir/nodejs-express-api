@@ -1,10 +1,10 @@
 const { Schema, model } = require('mongoose');
 
 const CacheSchema = new Schema({
-  key: { type: String, rquired: true },
+  key: { type: String, rquired: true, unique: true },
   value: { type: String, required: true },
-  last_refresh_at: { type: Date, required: true },
-  ttl: { type: Number, required: true }, // ttl stored in milliseconds
+  last_refresh_at: { type: Date },
+  ttl: { type: Number, default: 60000 }, // ttl stored in milliseconds
 });
 
 CacheSchema.virtual('isExpired').get(() => {
