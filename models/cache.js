@@ -10,7 +10,7 @@ const CacheSchema = new Schema({
 CacheSchema.virtual('isExpired').get(() => {
     const now = new Date();
     const diffTime = Math.abs(now - this.last_refresh_at);
-    if (diffTime > ttl) {
+    if (diffTime > this.ttl) {
         return true;
     }
     return false;
