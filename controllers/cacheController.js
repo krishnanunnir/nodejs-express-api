@@ -24,7 +24,7 @@ exports.getCacheValueByKey = (req, res) => {
     (err, data) => {
       if (err) return res.send(500, { error: err });
       return res.status(200).send(data);
-    },
+    }
   );
 };
 
@@ -78,7 +78,7 @@ exports.createOrUpdateCache = (req, res) => {
       return res
         .status(200)
         .send(`nothing to be done for key :: ${req.body.key}`);
-    },
+    }
   );
 };
 
