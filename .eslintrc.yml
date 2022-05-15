@@ -7,3 +7,4 @@ extends:
 parserOptions:
   ecmaVersion: latest
 rules: {}
+root: true

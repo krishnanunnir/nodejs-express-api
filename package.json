@@ -6,7 +6,9 @@
     "start": "node ./bin/www",
     "devstart": "nodemon ./bin/www",
     "serverstart": "DEBUG=express-locallibrary-tutorial:* npm run devstart",
-    "lint": "eslint models/"
+    "lint": "eslint --ext .js,.ts .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\""
   },
   "dependencies": {
     "async": "^3.2.3",
