@@ -1,3 +1,7 @@
+### Features not implemented
+
+1. TLL expiraton for keys. - middleware/clearExpiredCache.js (Explanation)
+2. Limited Cache size. - middleware/deleteOldercache.js (Explanation)
 ## Local Setup
 
 Requirements: Docker
@@ -44,8 +48,6 @@ $ curl -X DELETE -H "Content-Type: application/json" \
 $ curl -X PUT -H "Content-Type: application/json" -d '{"key": "rsebastian", "value": "hell1o"}' http://localhost:3000/cache
 > Deleted Key :: rsebastian%
 ```
-
-<!-- ### Features -->
 
 ### Todo
 - [ ] Add unit tests
