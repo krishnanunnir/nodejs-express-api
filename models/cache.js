@@ -5,6 +5,7 @@ const CacheSchema = new Schema({
   value: { type: String, required: true },
   last_refresh_at: { type: Date },
   ttl: { type: Number, default: 60000 }, // ttl stored in milliseconds
+  created_at: { type: Date, default: Date.now() },
 });
 
 CacheSchema.virtual('isExpired').get(() => {
